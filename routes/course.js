@@ -1,20 +1,33 @@
 // it return function called express
 const express = require("express");
 const Joi = require("joi")
+var mongoose = require('mongodb');
+const bodyparser = require("body-parser")
 
+var __dir = "/home/shashikant/Desktop/Practice/express-demo/";
 
-// it returns objects of express which is stored in app
+// it returns objects of express which is stored in router
 const router = express.Router();
+
+router.use(bodyparser.urlencoded({ extended: true }))
 
 router.use(express.json())
 
-// array of courses
-const courses = [
-    {id: 1, title: 'C++', author: "Raj"},
-    {id: 2, title: 'C++', author: "Rajmia"},
-    {id: 3, title: 'C++', author: "Rajiya"},
-    {id: 4, title: 'C++', author: "Raju"}
-];
+
+// Connection URL
+var db = 'mongodb://localhost/example';
+
+mongoose.connect(db);
+
+// MongoClient.connect(url, (err, client) => {
+//     if (err) return console.log(err)
+//     db = client.db('myProjectTwo') // whatever your database name is
+//     const col = db.collection('BooksData');     //collection created
+//     app.listen(port, () => {
+//         console.log('listening on ' + port);
+//     })
+// })
+
 
 // app.get has two argument one is url of site and
 //  second is callback function
@@ -33,15 +46,34 @@ router.get("/api/courses/:id", (req, res) => {
     }
 });
 
-router.post("/api/courses", (req, res)=>{
-    const course = {
-        id: courses.length + 1,
-        title: req.body.title,
-        author: req.body.author
-    };
-    courses.push(course)
-    res.send(course)
+router.get("/",(req,res)=>{
+    res.sendFile(__dir+"signup.html");
 });
+
+router.post("/signup", (req, res)=>{
+    
+    console.log(req.body)
+    
+        id= courses.length + 1,
+        fname= req.body.fname,
+        lname= req.body.lname,
+        email= req.body.email,
+        password= req.body.password
+    
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 // app.put();
 router.put('/api/courses/:id', (req, res) => {

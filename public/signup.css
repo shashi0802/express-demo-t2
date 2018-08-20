@@ -1,0 +1,48 @@
+.signup-page{
+    position: absolute;
+    line-height: 1.6em;
+    width: 100%;
+
+}
+.inner-container{
+    margin: 0 auto;
+     width: 50%;
+     background-color: #ccc;
+     border-radius: 5px;
+}
+label{
+    margin-left: 5%;
+}
+
+.signup-btn{
+    margin: 0 auto;
+    width: 20px; 
+    line-height: 1.6em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.signup-button{
+    margin-bottom: 10px;
+}
+
+.inner-container h1{
+    text-align: center;
+    padding-top: 20px;
+}
+.inner-container h5{
+    margin-left: 5%;
+    line-height: 1.6em;
+}
+input[type = text], input[type=password]{
+width: 70%;
+line-height: 1.6em;
+margin-left: 5%;
+}
+input[type=submit]{
+
+    width: 20%;
+    margin-left: 30%;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
